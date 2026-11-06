@@ -7,4 +7,67 @@
 #     paths: [app/bin/Example.deps.json]
 #     statement: "why this is accepted and what retires it"
 #     expired_at: YYYY-MM-DD
-vulnerabilities: []
+
+vulnerabilities:
+  # --- 2026-11-06 release scan of v1.0.0 (Radarr upstream tarball) ------------
+  # Every entry below is a NuGet library inside the self-contained upstream
+  # Radarr build (app/bin/*.deps.json): SixLabors.ImageSharp 3.1.12 and
+  # System.Security.Cryptography.Pkcs 8.0.1 are pinned by upstream's csproj and
+  # cannot be changed by repackaging. All HIGH, none CRITICAL. They retire with
+  # the next major Radarr line (.NET 10); re-check the upstream csproj when an
+  # entry expires and bump VERSION instead of renewing.
+
+  - id: CVE-2026-106110
+    # SixLabors.ImageSharp 3.1.12 -> 3.2.0, 4.1.2 (HIGH)
+    paths:
+      - app/bin/Radarr.Api.V3.deps.json
+      - app/bin/Radarr.Core.deps.json
+      - app/bin/Radarr.Host.deps.json
+      - app/bin/Radarr.Http.deps.json
+      - app/bin/Radarr.SignalR.deps.json
+      - app/bin/Radarr.deps.json
+    statement: "Library bundled in the self-contained upstream Radarr release; not changeable by repackaging. Retires with the next major Radarr line. Bump VERSION and drop this entry, do not renew."
+    expired_at: 2027-02-28
+  - id: CVE-2026-106113
+    # SixLabors.ImageSharp 3.1.12 -> 3.2.0, 4.1.2 (HIGH)
+    paths:
+      - app/bin/Radarr.Api.V3.deps.json
+      - app/bin/Radarr.Core.deps.json
+      - app/bin/Radarr.Host.deps.json
+      - app/bin/Radarr.Http.deps.json
+      - app/bin/Radarr.SignalR.deps.json
+      - app/bin/Radarr.deps.json
+    statement: "Library bundled in the self-contained upstream Radarr release; not changeable by repackaging. Retires with the next major Radarr line. Bump VERSION and drop this entry, do not renew."
+    expired_at: 2027-02-28
+  - id: CVE-2026-106115
+    # SixLabors.ImageSharp 3.1.12 -> 3.2.0, 4.1.2 (HIGH)
+    paths:
+      - app/bin/Radarr.Api.V3.deps.json
+      - app/bin/Radarr.Core.deps.json
+      - app/bin/Radarr.Host.deps.json
+      - app/bin/Radarr.Http.deps.json
+      - app/bin/Radarr.SignalR.deps.json
+      - app/bin/Radarr.deps.json
+    statement: "Library bundled in the self-contained upstream Radarr release; not changeable by repackaging. Retires with the next major Radarr line. Bump VERSION and drop this entry, do not renew."
+    expired_at: 2027-02-28
+  - id: CVE-2026-106118
+    # SixLabors.ImageSharp 3.1.12 -> 3.2.0, 4.1.1 (HIGH)
+    paths:
+      - app/bin/Radarr.Api.V3.deps.json
+      - app/bin/Radarr.Core.deps.json
+      - app/bin/Radarr.Host.deps.json
+      - app/bin/Radarr.Http.deps.json
+      - app/bin/Radarr.SignalR.deps.json
+      - app/bin/Radarr.deps.json
+    statement: "Library bundled in the self-contained upstream Radarr release; not changeable by repackaging. Retires with the next major Radarr line. Bump VERSION and drop this entry, do not renew."
+    expired_at: 2027-02-28
+  - id: CVE-2026-84008
+    # System.Security.Cryptography.Pkcs 8.0.1 -> 10.0.13, 11.0.0-rc.2, 8.0.2, 9.0.21 (HIGH)
+    paths:
+      - app/bin/Radarr.Api.V3.deps.json
+      - app/bin/Radarr.Core.deps.json
+      - app/bin/Radarr.Host.deps.json
+      - app/bin/Radarr.Http.deps.json
+      - app/bin/Radarr.SignalR.deps.json
+    statement: "Library bundled in the self-contained upstream Radarr release; not changeable by repackaging. Retires with the next major Radarr line. Bump VERSION and drop this entry, do not renew."
+    expired_at: 2027-02-28
