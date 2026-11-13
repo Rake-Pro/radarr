@@ -3,7 +3,7 @@
 # Radarr v6 on the shared Alpine base, rootless from the first process.
 # Upstream ships a self-contained .NET build (runtime inside the tarball), so
 # the image only adds the native libraries that runtime loads.
-FROM ghcr.io/rake-pro/alpine-base:1.0@sha256:dc3ee9f773b64708750783e81c9f9a0071194f56e40cd2d3f3e6fa139ec1dc46 AS fetch
+FROM ghcr.io/rake-pro/alpine-base:1.0@sha256:73a14e80b779043678834af2c47d6c1c17dc1982733d596fba38bafd1093e5b5 AS fetch
 ARG VERSION="6.4.4.10685"
 ARG BRANCH="master"
 RUN apk add --no-cache curl \
@@ -15,7 +15,7 @@ RUN apk add --no-cache curl \
     && printf 'UpdateMethod=docker\nBranch=%s\nPackageVersion=%s\nPackageAuthor=[Rake-Pro](https://github.com/Rake-Pro)\n' "${BRANCH}" "${VERSION}" > /out/package_info \
     && chmod -R u=rwX,go=rX /out
 
-FROM ghcr.io/rake-pro/alpine-base:1.0@sha256:dc3ee9f773b64708750783e81c9f9a0071194f56e40cd2d3f3e6fa139ec1dc46
+FROM ghcr.io/rake-pro/alpine-base:1.0@sha256:73a14e80b779043678834af2c47d6c1c17dc1982733d596fba38bafd1093e5b5
 ARG VERSION
 LABEL org.opencontainers.image.source="https://github.com/Rake-Pro/radarr" \
       org.opencontainers.image.version="${VERSION}"
