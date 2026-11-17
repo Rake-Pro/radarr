@@ -4,7 +4,7 @@
 # Upstream ships a self-contained .NET build (runtime inside the tarball), so
 # the image only adds the native libraries that runtime loads.
 FROM ghcr.io/rake-pro/alpine-base:1.0@sha256:73a14e80b779043678834af2c47d6c1c17dc1982733d596fba38bafd1093e5b5 AS fetch
-ARG VERSION="6.4.4.10685"
+ARG VERSION="7.0.3.10918"
 ARG BRANCH="master"
 RUN apk add --no-cache curl \
     && mkdir -p /out/bin \
